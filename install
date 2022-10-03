@@ -7,7 +7,8 @@ stow $stow_options nvim
 
 if [[ $(hostnamectl hostname) = 'nautilus' ]]; then
      stow $stow_options desktop
-elif [[ $(hostnamectl hostname) = 'uranus' ]]; then
+elif [[ $(hostnamectl hostname) = 'sancho' ]]; then
+     echo "$stow_options"
      stow $stow_options laptop
      stow $stow_options sway
      stow $stow_options zsh
