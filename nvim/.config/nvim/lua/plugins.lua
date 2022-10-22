@@ -19,4 +19,9 @@ return require('packer').startup(function(use)
      use 'dcampos/nvim-snippy'
      use 'dcampos/cmp-snippy'
 
+     -- install lualine for configuring the statusline
+     use {
+          'nvim-lualine/lualine.nvim',
+          requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+     }
 end)

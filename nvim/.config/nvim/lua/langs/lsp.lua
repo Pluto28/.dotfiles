@@ -1,7 +1,7 @@
 vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lspconfig = require('lspconfig')
 -- MORE server configs can be found at https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
