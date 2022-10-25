@@ -2,14 +2,14 @@
 
 stow_options="-n -t $HOME"
 
-echo "$stow_options"
 stow $stow_options zsh
 stow $stow_options vim
 stow $stow_options sway
-stow $stow_options nvim
+stow -t $HOME nvim
 
 if [[ $(hostnamectl hostname) = 'nautilus' ]]; then
-     stow $stow_options desktop
+	stow -t $HOME desktop
+	stow -t $HOME bash 
 elif [[ $(hostnamectl hostname) = 'uranus' ]]; then
      stow $stow_options laptop
 fi
