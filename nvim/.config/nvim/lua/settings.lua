@@ -28,6 +28,9 @@ set.expandtab = true
 set.shiftwidth =  5
 set.softtabstop = 5 -- There are multiple options to accomplish this, check later
 
+-- enable 24-bit color when using vim in a terminal emulator. 
+set.termguicolors = true
+
 -------------------------------------------------------------------------------
 -- Global config
 -------------------------------------------------------------------------------
@@ -47,3 +50,11 @@ local wo = vim.wo
 -------------------------------------------------------------------------------
 -- buffer local options
 local bo = vim.bo
+
+
+
+-------------------------------------------------------------------------------
+-- Settings for which there is no api for lua still 
+-------------------------------------------------------------------------------
+vim.cmd([[highlight PmenuSel guibg=darkmagenta]])
+vim.cmd([[highlight Pmenu guibg=backgroud]])
