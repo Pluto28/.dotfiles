@@ -25,9 +25,17 @@ return require('packer').startup(function(use)
      use 'L3MON4D3/LuaSnip'
      use 'saadparwaiz1/cmp_luasnip'
 
+<<<<<<< HEAD
      -- install lualine
      use {
           'nvim-lualine/lualine.nvim',
           requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
+=======
+     -- install lualine for configuring the statusline
+     use {
+          'nvim-lualine/lualine.nvim',
+          requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+     }
+>>>>>>> b1ff4a09cecf95e4e9077c366ff6fc8d87f976b1
 end)

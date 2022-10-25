@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 
-stow_options="-n -t $HOME"
+stow_options="--verbose 1 -t $HOME --restow"
 
+<<<<<<< HEAD
 stow $stow_options zsh
 stow $stow_options vim
 stow $stow_options sway
@@ -11,5 +12,17 @@ if [[ $(hostnamectl hostname) = 'nautilus' ]]; then
 	stow -t $HOME desktop
 	stow -t $HOME bash 
 elif [[ $(hostnamectl hostname) = 'uranus' ]]; then
+=======
+stow $stow_options nvim
+
+if [[ $(hostnamectl hostname) = 'nautilus' ]]; then
+     stow $stow_options desktop
+     stow $stow_options bash
+     stow $stow_options kitty 
+elif [[ $(hostnamectl hostname) = 'sancho' ]]; then
+>>>>>>> b1ff4a09cecf95e4e9077c366ff6fc8d87f976b1
      stow $stow_options laptop
+     stow $stow_options sway
+     stow $stow_options zsh
+     stow $stow_options foot
 fi
