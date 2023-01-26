@@ -20,6 +20,7 @@ set.ignorecase = true
 
 -- number lines
 set.number = true
+set.relativenumber = true
 
 -- tabs to spaces
 set.expandtab = true
