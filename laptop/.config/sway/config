@@ -18,7 +18,8 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-#set $menu bemenu | xargs swaymsg exec --
+set $menu bemenu-run -n
+#set $menu wofi --show=run,bemenu,dmenu
 
 ### Output configuration
 #
@@ -101,7 +102,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 
 # Start your launcher
-bindsym $mod+d exec "bemenu-run -n" 
+bindsym $mod+d exec $menu 
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

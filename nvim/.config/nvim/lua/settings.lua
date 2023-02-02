@@ -22,6 +22,9 @@ set.ignorecase = true
 set.number = true
 set.relativenumber = true
 
+-- scroll offset
+set.scrolloff = 10
+
 -- tabs to spaces
 set.expandtab = true
 
