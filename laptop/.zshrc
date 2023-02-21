@@ -1,8 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
-local _rustup_path="$(rustup toolchain list -v | tr '\t' ' ' | tr -s ' ' \
-     | cut -d ' ' -f 3)"
-export PATH="$_rustup_path/bin":$HOME/bin:$PATH
+#
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -29,7 +27,7 @@ ZSH_THEME="fino"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -73,13 +71,13 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rust git colored-man-pages colorize ssh-agent pipenv)
+plugins=(git colored-man-pages colorize ssh-agent pipenv rust)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export MANPATH="$_rustup_path/share/man:/usr/local/man:$MANPATH"
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -104,4 +102,3 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
