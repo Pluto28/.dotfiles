@@ -1,4 +1,4 @@
-vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+vim.api.nvim_buf_set_option(0, 'formatexpr', 'vim.lsp.buf.format()')
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
