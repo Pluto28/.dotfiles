@@ -1,4 +1,3 @@
-
 return require('packer').startup(function(use)
      -- Packer can manage itself
      use 'wbthomason/packer.nvim'
@@ -11,7 +10,7 @@ return require('packer').startup(function(use)
 
      -- LSP completion source for nvim-cmp
      use 'hrsh7th/cmp-nvim-lsp'
-     
+
      use 'hrsh7th/cmp-buffer'
      use 'hrsh7th/cmp-path'
      use 'hrsh7th/cmp-cmdline'
@@ -27,5 +26,5 @@ return require('packer').startup(function(use)
      use {
           'nvim-lualine/lualine.nvim',
           requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+     }
 end)

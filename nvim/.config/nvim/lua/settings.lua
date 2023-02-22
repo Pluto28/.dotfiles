@@ -4,19 +4,19 @@
 local set = vim.opt
 
 -- Set the cursor shape
-set.guicursor = 'n-i-r:hor95' 
+set.guicursor = 'n-i-r:hor95'
 
 -- EOLs to try when starting new buffer
 set.fileformats = "unix,dos,mac"
 
 -- Smart tab
-set.smarttab = true 
+set.smarttab = true
 
 -- Smart cases when searching patterns
 set.smartcase = true
 
 -- ignore case when searching, overridden by smartcase
-set.ignorecase = true 
+set.ignorecase = true
 
 -- number lines
 set.number = true
@@ -29,10 +29,10 @@ set.scrolloff = 10
 set.expandtab = true
 
 -- 1 tab for 5 spaces
-set.shiftwidth =  5
+set.shiftwidth = 5
 set.softtabstop = 5 -- There are multiple options to accomplish this, check later
 
--- enable 24-bit color when using vim in a terminal emulator. 
+-- enable 24-bit color when using vim in a terminal emulator.
 set.termguicolors = true
 
 -------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ local o = vim.o
 -- window-local config
 -------------------------------------------------------------------------------
 -- window local options
-local wo = vim.wo 
+local wo = vim.wo
 
 
 -------------------------------------------------------------------------------
@@ -58,13 +58,13 @@ local bo = vim.bo
 
 
 -------------------------------------------------------------------------------
--- Keymaps 
+-- Keymaps
 -------------------------------------------------------------------------------
-vim.keymap.set('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', {noremap=true}) 
+vim.keymap.set('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true })
 
 
 -------------------------------------------------------------------------------
--- Settings for which there is no api for lua still 
+-- Settings for which there is no api for lua still
 -------------------------------------------------------------------------------
 vim.cmd([[highlight PmenuSel guibg=darkmagenta]])
 vim.cmd([[highlight Pmenu guibg=backgroud]])
