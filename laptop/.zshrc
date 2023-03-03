@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
-#
+
+local rust_toolchain_path="$(rustup toolchain list -v | tr '\t' ' ' | tr -s ' ' | cut -d ' ' -f 3)"
+export PATH=$PATH:"$rust_toolchain_path/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -71,7 +73,7 @@ ZSH_THEME="fino"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize ssh-agent pipenv rust)
+plugins=(git colored-man-pages colorize ssh-agent pipenv rust osc7)
 
 source $ZSH/oh-my-zsh.sh
 

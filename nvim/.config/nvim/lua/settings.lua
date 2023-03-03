@@ -35,11 +35,14 @@ set.softtabstop = 5 -- There are multiple options to accomplish this, check late
 -- enable 24-bit color when using vim in a terminal emulator.
 set.termguicolors = true
 
+vim.cmd.colorscheme("gruvbox-material")
+
 -------------------------------------------------------------------------------
 -- Global config
 -------------------------------------------------------------------------------
 -- global options
-local o = vim.o
+local g = vim.g
+
 
 
 -------------------------------------------------------------------------------
@@ -62,9 +65,8 @@ local bo = vim.bo
 -------------------------------------------------------------------------------
 vim.keymap.set('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true })
 
-
 -------------------------------------------------------------------------------
 -- Settings for which there is no api for lua still
 -------------------------------------------------------------------------------
-vim.cmd([[highlight PmenuSel guibg=darkmagenta]])
-vim.cmd([[highlight Pmenu guibg=backgroud]])
+--vim.cmd([[highlight PmenuSel guibg=darkmagenta]])
+--vim.cmd([[highlight Pmenu guibg=backgroud]])

@@ -38,6 +38,7 @@ lspconfig.ccls.setup {
 
      },
      capabilities = capabilities,
+     filetypes = {"c", "cpp", "h", "cuda"},
 }
 
 lspconfig.racket_langserver.setup {
