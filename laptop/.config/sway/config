@@ -71,13 +71,6 @@ input "1:1:AT_Translated_Set_2_keyboard" {
      repeat_rate 20
 }
 
-#input "3141:20484:SONiX_USB_DEVICE_Keyboard" {
-#    xkb_layout "br" 
-#    xkb_model "pc102"
-#    repeat_delay 300
-#    repeat_rate 20
-#}
-
 # Configuration for the mechanical keyboard 
 input "3141:20484:SONiX_USB_DEVICE" {
     xkb_layout "br" 
