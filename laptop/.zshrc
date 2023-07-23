@@ -104,3 +104,5 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f "/home/uranus/.ghcup/env" ] && source "/home/uranus/.ghcup/env" # ghcup-env

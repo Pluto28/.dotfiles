@@ -25,6 +25,7 @@ set $menu bemenu-run -n
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg "/home/uranus/Pictures/wallpapers/minimalistic-wallpaper-collection/images/alena-aenami-out-of-time.png" fill
 #
 # Example configuration:
 #
@@ -42,7 +43,6 @@ exec swayidle -w \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 000000' \
           before-sleep 'playerctl pause' \
-          before-sleep 'swaylock' \
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -60,7 +60,6 @@ input "type:touchpad" {
      middle_emulation enabled
      scroll_method edge 
      tap_button_map lrm
-
 }
 
 
@@ -197,8 +196,10 @@ bindsym $mod+a focus parent
 #
 ## Custom keybinds:
 #
-bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym Shift+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym Shift+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 1%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 1%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle 
 
 # Screenshot keybind
