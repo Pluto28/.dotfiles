@@ -55,7 +55,6 @@ lspconfig.texlab.setup {
 
 lspconfig.hls.setup {
      capabilitites = capabilities,
-     root_dir = ".git",
      filetypes = { 'haskell', 'lhaskell', 'cabal' },
 
 }
