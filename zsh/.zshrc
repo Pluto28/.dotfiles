@@ -1,8 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$PATH
+#export PATH=$HOME/bin:$PATH
 
-local rust_toolchain_path="$(rustup toolchain list -v | tr '\t' ' ' | tr -s ' ' | cut -d ' ' -f 3)"
-export PATH=$PATH:"$rust_toolchain_path/bin"
+export PATH="$(realpath ~/.cargo/bin):$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -12,6 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="fino"
+#ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,7 +73,7 @@ ZSH_THEME="fino"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize ssh-agent pipenv rust osc7)
+plugins=(git colored-man-pages colorize ssh-agent pipenv rust)
 
 source $ZSH/oh-my-zsh.sh
 
