@@ -123,12 +123,15 @@
             "format-alt": " {ifname}: {ipaddr}/{cidr}"
         },
         "wireplumber": {
-            // "scroll-step": 1, // %, can be a float
+            "scroll-step": 1, // %, can be a float
             "format": "{volume}% {icon}",
             "format-muted": " ",
-            //"format-source": " {volume}%",
+            "format-source": " {volume}%",
             //"format-source-muted": "",
-            "format-icons": ["", "", ""]
+            "format-icons": {
+                "headset": "foo",
+                "default": ["", "", ""],
+            }
             //        "on-click": "pavucontrol"
         },
         "custom/media": {

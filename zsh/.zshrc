@@ -2,6 +2,7 @@
 #export PATH=$HOME/bin:$PATH
 
 export PATH="$(realpath ~/.cargo/bin):$PATH"
+export PATH="$PATH:$HOME/bin:/usr/local/texlive/2024/bin/x86_64-linux"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -73,7 +74,7 @@ ZSH_THEME="fino"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize ssh-agent pipenv rust)
+plugins=(git colored-man-pages colorize ssh-agent pipenv rust exercism)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,3 +107,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f "/home/uranus/.ghcup/env" ] && source "/home/uranus/.ghcup/env" # ghcup-env
+
+# opam configuration
+[[ ! -r /home/DonQuixote/.opam/opam-init/init.zsh ]] || source /home/DonQuixote/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

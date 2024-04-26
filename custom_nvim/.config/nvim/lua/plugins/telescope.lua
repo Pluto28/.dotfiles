@@ -1,12 +1,12 @@
 telescope_cfg =  {
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    'nvim-telescope/telescope.nvim', refs = '0.1.6',
     dependencies = { 'nvim-lua/plenary.nvim' },
 
     
-	config = function()
-		require("telescope").setup()
-		builtin = require("telescope.builtin")
-	end,
+    config = function()
+        builtin = require("telescope.builtin")
+        require('telescope').setup()
+    end,
 
     keys = {
         -- add a keymap to browse plugin files
@@ -33,13 +33,6 @@ telescope_cfg =  {
             winblend = 0,
         },
         pickers = { 
-            find_files = {
-                theme = "gruvbox",
-            },
-            
-            live_grep = {
-                theme = "gruvbox",
-            },
         },
         extensions = {
             fzf = {
@@ -52,9 +45,7 @@ telescope_cfg =  {
     },
 }
 
-return {
-    telescope_cfg
-}
+return telescope_cfg
 
 
 
