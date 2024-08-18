@@ -5,7 +5,7 @@
 
     "network": {
         // "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": " {signalStrength}%",
+        "format-wifi": "  {signalStrength}%",
         "format-ethernet": "{ifname} ",
         "format-disconnected": "", 
         "max-length": 50,
@@ -15,7 +15,7 @@
         "format": " {}%"
     },
     "wireplumber": {
-        "format": "{icon} {volume} ",
+        "format": "{icon} {volume}   ",
         "format-muted": "",
         "format-icons": ["", "", ""],
         "max-volume": "100"
