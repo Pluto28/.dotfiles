@@ -1,150 +1,92 @@
 {
-    "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
-                  // "width": 1280, // Waybar width
-                  //"spacing": 4, // Gaps between modules (4px)
-                  // Choose the order of the modules
-        "modules-left": ["hyprland/workspaces", "custom/media"],
-        "modules-center": ["hyprland/window"],
-        //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "clock", "tray"],
-        "modules-right": ["idle_inhibitor", "temperature", "cpu", "memory","network", "backlight", "wireplumber", "battery", "tray", "clock"],
-        // Modules configuration
-//   "hyprland/workspaces": {
-//            //"format": "<sub>{icon}</sub>\n{windows}",
-//            "format": "\n{windows}",
-//            "format-window-separator": "\n",
-//            "window-rewrite-default": "",
-//            "window-rewrite": {
-//                "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
-//                "class<firefox>": "", // Windows whose classes are "firefox"
-//                "class<firefox> title<.*github.*>": "", 
-//                "foot": "", 
-//                "code": "󰨞",
-//            }
-//        },
-        "hyprland/window": {
-            "format": "{}",
-            "rewrite": {
-                "(.*) — Mozilla Firefox": "🌎 $1",
-                "(.*) - zsh": "> [$1]"
-            },
-            "separate-outputs": true
-        },
-        "mpd": {
-            //        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-            "format": "  {title} - {artist} {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}] [{volume}%]",
-            "format-disconnected": " Disconnected",
-            "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
-            "unknown-tag": "N/A",
-            "interval": 2,
-            "consume-icons": {
-                "on": " "
-            },
-            "random-icons": {
-                //            "off": "<span color=\"#f53c3c\"></span> ",
-                "on": " "
-            },
-            "repeat-icons": {
-                "on": " "
-            },
-            "single-icons": {
-                "on": "1 "
-            },
-            "state-icons": {
-                "paused": "",
-                "playing": ""
-            },
-            "tooltip-format": "MPD (connected)",
-            "tooltip-format-disconnected": "MPD (disconnected)",
-            "on-click": "mpc toggle",
-            //        "on-click-right": "foot -a ncmpcpp ncmpcpp",
-            "on-scroll-up": "mpc volume +2",
-            "on-scroll-down": "mpc volume -2"
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["clock", "idle_inhibitor"],
+    /* "modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"], */
+    /*"modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"],*/
+    "modules-right": ["tray", "network", "memory", "temperature", "battery"],
 
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "network": {
+        // "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "({signalStrength}%) ",
+        "format-ethernet": "{ifname} ",
+        "format-disconnected": "", 
+        "max-length": 50,
+        "on-click": "foot -e 'nmtui'"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
         },
-        "idle_inhibitor": {
-            "format": "{icon}",
-            "format-icons": {
-                "activated": "",
-                "deactivated": ""
-            }
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
         },
-        "tray": {
-            // "icon-size": 21,
-            "spacing": 10
+		"on-click": "bash /home/dg/.local/bin/toggleRemote"
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "clock": {
+        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // "format-alt": "{:%Y-%m-%d}"
+		"on-click": "gnome-calendar"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "0% {icon} ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
         },
-        "clock": {
-            // "timezone": "America/New_York",
-            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "format-alt": "{:%Y-%m-%d}"
-        },
-        "cpu": {
-            "format": " {usage}%",
-            //        "tooltip": false
-        },
-        "memory": {
-            "format": " {}%"
-        },
-        "temperature": {
-            "thermal-zone": 2,
-            "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-            "critical-threshold": 80,
-            "format-critical": "{icon} {temperatureC}°C",
-            "format": "{icon} {temperatureC}°C",
-            "format-icons": ["", "", ""]
-        },
-        "backlight": {
-            // "device": "acpi_video1",
-            "format": "{icon} {percent}%",
-            "format-icons":  ["", ""]
-        },
-        "battery": {
-            "states": {
-                // "good": 95,
-                "warning": 30,
-                "critical": 15
-            },
-            "format": "{icon} {capacity}%",
-            "format-charging": " {capacity}%",
-            "format-plugged": " {capacity}%",
-            "format-alt": "{icon} {time}",
-            // "format-good": "", // An empty format will hide the module
-            // "format-full": "",
-            "format-icons": ["", "", "", "", ""]
-        },
-        "network": {
-            // "interface": "wlp2*", // (Optional) To force the use of this interface
-            "format-wifi": "{essid} ({signalStrength}%) ",
-            "format-ethernet": " {ifname}",
-            "tooltip-format": " {ifname} via {gwaddr}",
-            "format-linked": " {ifname} (No IP)",
-            "format-disconnected": "Disconnected ⚠ {ifname}",
-            "format-alt": " {ifname}: {ipaddr}/{cidr}"
-        },
-        "wireplumber": {
-            "scroll-step": 1, // %, can be a float
-            "format": "{volume}% {icon}",
-            "format-muted": " ",
-            "format-source": " {volume}%",
-            //"format-source-muted": "",
-            "format-icons": {
-                "headset": "foo",
-                "default": ["", "", ""],
-            }
-            //        "on-click": "pavucontrol"
-        },
-        "custom/media": {
-            "format": "{icon} {}",
-            "return-type": "json",
-            "max-length": 40,
-            "format-icons": {
-                "spotify": "",
-                "default": "🎜"
-            },
-            "escape": true,
-            "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-                                                                       // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-        }
+        "on-click": "pavucontrol"
+    },
+	"custom/power": {
+		"format": " ",
+		"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
+	},
+    "custom/scratchpad-indicator": {
+        "format-text": "{}hi",
+        "return-type": "json",
+        "interval": 3,
+        "exec": "~/.local/bin/scratchpad-indicator 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    }
 }
-

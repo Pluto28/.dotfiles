@@ -99,5 +99,9 @@ return {{
         require('lspconfig')['texlab'].setup {
             capabilities = capabilities,
         }
+
+        require('lspconfig')['clangd'].setup {
+            capabilities = capabilities
+        }
     end
 }}
