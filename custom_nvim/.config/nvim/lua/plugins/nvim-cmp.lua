@@ -103,5 +103,14 @@ return {{
         require('lspconfig')['clangd'].setup {
             capabilities = capabilities
         }
+
+        require('lspconfig')['hls'].setup {
+            filetypes = { 'haskell', 'lhaskell', 'cabal' },
+            haskell = {
+                cabalFormattingProvider = "cabalfmt",
+                formattingProvider = "ormolu"
+            },
+            single_file_support = true
+        }
     end
 }}

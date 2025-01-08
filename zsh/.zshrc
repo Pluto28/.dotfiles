@@ -106,7 +106,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f "/home/uranus/.ghcup/env" ] && source "/home/uranus/.ghcup/env" # ghcup-env
 
 # opam configuration
 [[ ! -r /home/DonQuixote/.opam/opam-init/init.zsh ]] || source /home/DonQuixote/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+[ -f "/home/DonQuixote/.ghcup/env" ] && . "/home/DonQuixote/.ghcup/env" # ghcup-env

@@ -1,4 +1,4 @@
-vim.o.mapleader = ""
+-- vim.g.mapleader = ""
 
 -- TODO: take a look at the builtin pickers functions
 --local builtin = require('telescope.builtin')
@@ -6,4 +6,7 @@ vim.o.mapleader = ""
 --vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 --vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 --vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+--
+--require('plugins.lsp')
+--vim.keymap.set('n', '=', vim.lsp.buf.format("hls"), {})
 

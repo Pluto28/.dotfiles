@@ -21,3 +21,8 @@ opt.incsearch = true
 
 -- enable 24-bit colors on the terminal
 opt.termguicolors = true
+
+-- use lsp's formatting 
+--if vim.lsp.buf_get_clients()[1].name ~= nil then
+--    vim.indentexpr=vim.lsp.buf.format(vim.lsp.buf_get_clients()[1].name)
+--end

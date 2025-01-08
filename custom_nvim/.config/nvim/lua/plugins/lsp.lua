@@ -1,10 +1,10 @@
-return  {{
+return { {
     "neovim/nvim-lspconfig",
-    config = function() 
+    config = function()
         -- Setup language servers.
         local lspconfig = require('lspconfig')
         lspconfig.pyright.setup {}
-        lspconfig.tsserver.setup {}
+        lspconfig.ts_ls.setup {}
         lspconfig.rust_analyzer.setup {
             -- Server-specific settings. See `:help lspconfig-setup`
             settings = {
@@ -50,5 +50,22 @@ return  {{
                 end, opts)
             end
         })
+
+        vim.diagnostic.config({
+            virtual_text = false
+        })
+
+        -- Show line diagnostics automatically in hover window
+        vim.o.updatetime = 250
+
+        -- CursorHoldI is triggered when in insert mode, i don't like the floating
+        -- window opening while i write code
+        vim.api.nvim_create_autocmd({ "CursorHold" }, {
+            group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+            callback = function()
+                vim.diagnostic.open_float(nil, { focus = false })
+            end
+        })
+        --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
     end
-}}
+} }
